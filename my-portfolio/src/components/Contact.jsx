@@ -11,7 +11,8 @@ import {
   MessageSquare, 
   ArrowUpRight, 
   FileText,
-  Sparkles
+  Sparkles,
+  Phone
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -117,6 +118,24 @@ export function Contact({ onOpenCv }) {
                 </button>
               </div>
 
+              {/* Direct Phone */}
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 shrink-0">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-mono uppercase text-slate-400 block">
+                    Phone / Direct Line
+                  </span>
+                  <a
+                    href={`tel:${personalInfo.phone.replace(/[^+\d]/g, '')}`}
+                    className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  >
+                    {personalInfo.phone}
+                  </a>
+                </div>
+              </div>
+
               {/* Location */}
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 shrink-0">
@@ -177,7 +196,7 @@ export function Contact({ onOpenCv }) {
                   className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 text-xs font-semibold text-indigo-700 dark:text-indigo-300 transition-colors cursor-pointer border border-indigo-200 dark:border-indigo-800"
                 >
                   <FileText className="w-4 h-4" />
-                  <span>View Resume</span>
+                  <span>View CV Document</span>
                 </button>
               </div>
             </div>

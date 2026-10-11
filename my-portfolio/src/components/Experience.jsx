@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
 import { 
   Briefcase, 
-  Calendar, 
-  MapPin, 
   CheckCircle2, 
-  Terminal
+  GraduationCap,
+  Calendar,
+  Building2,
+  Award
 } from 'lucide-react';
-import { experienceTimeline } from '../data/portfolioData';
+import { experienceTimeline, educationData } from '../data/portfolioData';
 
 export function Experience() {
   return (
@@ -14,7 +15,7 @@ export function Experience() {
       id="experience" 
       className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors relative"
     >
-      <div className="max-w-5xl mx-auto space-y-12">
+      <div className="max-w-5xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="max-w-2xl space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-400 text-xs font-mono font-medium">
@@ -36,7 +37,7 @@ export function Experience() {
         <div className="relative border-l-2 border-indigo-200 dark:border-indigo-950 ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-10">
           {experienceTimeline.map((item, idx) => (
             <motion.div
-              key={item.organization}
+              key={`${item.organization}-${item.period}`}
               initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
@@ -56,11 +57,12 @@ export function Experience() {
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
                       {item.role}
                     </h3>
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5 mt-0.5">
+                      <Building2 className="w-3.5 h-3.5 text-indigo-500" />
                       {item.organization}
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-slate-400 sm:text-right shrink-0">
+                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400 sm:text-right shrink-0 px-2.5 py-1 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                     {item.period}
                   </span>
                 </div>
@@ -93,6 +95,43 @@ export function Experience() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Education & Academic Foundation Card */}
+        <div className="pt-6 border-t border-slate-200 dark:border-slate-800/80">
+          <div className="p-6 sm:p-8 rounded-3xl bg-linear-to-br from-indigo-50/50 via-slate-50 to-white dark:from-slate-900 dark:via-indigo-950/20 dark:to-slate-900 border border-indigo-100 dark:border-slate-800 shadow-sm space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-indigo-100/80 dark:border-slate-800">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-indigo-600 text-white rounded-2xl shadow-md shadow-indigo-600/20">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-bold mb-0.5">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>Academic Qualification</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                    {educationData[0].degree}
+                  </h3>
+                  <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+                    {educationData[0].institution}
+                  </p>
+                </div>
+              </div>
+              <span className="text-xs font-mono px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 shrink-0 self-start sm:self-auto">
+                Degree Awarded
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {educationData[0].highlights.map((point) => (
+                <div key={point} className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -39,13 +39,13 @@ const NODES = [
   {
     id: 'engines',
     title: 'Core Domain Engines',
-    subtitle: 'Tariff, Logistics & Payment Logic',
+    subtitle: 'Tariff, Dispatch & Inventory Logic',
     icon: Cpu,
     color: 'from-violet-500/20 to-pink-500/20 text-violet-400 border-violet-500/30',
-    tags: ['Billing State Machine', 'Fleet Dispatch', 'Idempotent Webhooks', 'SignalR'],
+    tags: ['Billing State Machine', 'DPMS Fleet Dispatch', 'FEFO Inventory', 'SSRS Engine'],
     throughput: 'Tiered tariff calculation & transit verification',
-    protocol: 'C# Business Services / MediatR',
-    desc: 'Autonomous domain modules executing municipal water tariff policies, transit manifest rules, and payment settlement.',
+    protocol: 'C# Business Services / REST APIs',
+    desc: 'Autonomous domain modules executing municipal water tariff policies, transport agency dispatch rules, and pharmacy stock FEFO tracking.',
   },
   {
     id: 'database',

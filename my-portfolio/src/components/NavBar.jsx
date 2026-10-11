@@ -120,7 +120,7 @@ export function Navbar({ onOpenCv }) {
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 transition-all hover:scale-102 active:scale-98"
             >
               <FileText className="w-3.5 h-3.5 text-indigo-500" />
-              <span>Resume</span>
+              <span>View CV</span>
             </button>
 
             <a
@@ -181,7 +181,7 @@ export function Navbar({ onOpenCv }) {
                 className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800"
               >
                 <FileText className="w-4 h-4 text-indigo-500" />
-                View & Download Resume
+                View CV / Resume
               </button>
               <a
                 href="#contact"

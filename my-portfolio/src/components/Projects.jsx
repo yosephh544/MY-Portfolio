@@ -4,9 +4,7 @@ import {
   FolderGit2, 
   ArrowRight, 
   ShieldCheck, 
-  Cpu, 
-  Maximize2,
-  ExternalLink
+  Maximize2
 } from 'lucide-react';
 import { projectsData } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
@@ -14,10 +12,8 @@ import { ProjectModal } from './ProjectModal';
 const CATEGORIES = [
   'All',
   'Utility & Billing',
-  'Transport & Fleet',
-  'Healthcare & Retail',
-  'Financial & Payments',
-  'Government Enterprise',
+  'Transport & Logistics',
+  'Healthcare & Inventory',
 ];
 
 export function Projects() {
@@ -48,7 +44,7 @@ export function Projects() {
               </span>.
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Discovered and documented from production deployments and repository assets.
+              Verified production systems with real implementation captures.
             </p>
           </div>
 
@@ -91,7 +87,7 @@ export function Projects() {
                   <div>
                     {/* Visual Preview */}
                     <div className="relative h-48 w-full overflow-hidden bg-slate-950 border-b border-slate-100 dark:border-slate-800">
-                      {primaryPreview ? (
+                      {primaryPreview && (
                         <div className="w-full h-full relative group/img overflow-hidden">
                           <img
                             src={primaryPreview}
@@ -109,25 +105,6 @@ export function Projects() {
                             </button>
                           </div>
                         </div>
-                      ) : (
-                        /* Clean Architectural Preview */
-                        <div className="w-full h-full p-5 flex flex-col justify-between bg-linear-to-br from-slate-900 via-indigo-950 to-slate-900 text-white">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[10px] font-mono text-indigo-400 px-2 py-0.5 rounded bg-indigo-900/40 border border-indigo-700/50">
-                              {project.category}
-                            </span>
-                            <Cpu className="w-4 h-4 text-indigo-400" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-bold truncate">{project.title}</div>
-                            <div className="text-[11px] text-slate-400 mt-1 line-clamp-2">
-                              {project.shortDesc}
-                            </div>
-                          </div>
-                          <div className="text-[10px] font-mono text-slate-400">
-                            System Architecture Blueprint
-                          </div>
-                        </div>
                       )}
 
                       {/* Verified Badge */}
@@ -139,7 +116,7 @@ export function Projects() {
                       )}
                     </div>
 
-                    {/* Card Content (Concise) */}
+                    {/* Card Content */}
                     <div className="p-5 space-y-3">
                       <div>
                         <div className="flex items-center justify-between gap-2 text-xs font-mono text-indigo-600 dark:text-indigo-400 mb-1">
@@ -157,7 +134,7 @@ export function Projects() {
                         {project.shortDesc}
                       </p>
 
-                      {/* Tech Badges (Concise: 3-4 max) */}
+                      {/* Tech Badges */}
                       <div className="flex flex-wrap gap-1.5 pt-1">
                         {project.technologies.slice(0, 4).map((tech) => (
                           <span
@@ -182,7 +159,7 @@ export function Projects() {
                       onClick={() => setSelectedProject(project)}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors cursor-pointer"
                     >
-                      <span>Explore Project</span>
+                      <span>Explore System</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </button>
                     {project.hasScreenshots && (
@@ -198,7 +175,7 @@ export function Projects() {
         </div>
       </div>
 
-      {/* Case Study Modal with Animated Screenshots */}
+      {/* Case Study Modal with Gallery */}
       <ProjectModal
         project={selectedProject}
         isOpen={Boolean(selectedProject)}

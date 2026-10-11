@@ -13,11 +13,11 @@ import {
 import { skillsCategories } from '../data/portfolioData';
 
 const CATEGORY_ICONS = {
-  Frontend: Layout,
   Backend: Server,
-  Database: Database,
+  Frontend: Layout,
+  'Database & Reporting': Database,
   'Tools & Deployment': Cloud,
-  'Integrations & Engineering': Cpu,
+  'Engineering & Integration': Cpu,
 };
 
 export function Skills() {
